@@ -1,0 +1,8 @@
+@font-face {
+    font-family: avenir,Arial, Helvetica, sans-serif;
+    src: url(../web-font/Avenir.ttc);
+}
+
+body {
+font-family: avenir;
+}

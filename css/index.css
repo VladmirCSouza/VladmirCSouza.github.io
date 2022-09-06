@@ -1,22 +1,57 @@
 p {
     color: #caccce;
 }
-html {
-    height: 100%;
-}
 body {
-    background: #323232;
+    background-color: #dadada;
     height: 100%;
 }
 
-.container {
-    text-align: center;
-    display: table;
+
+.navbar-default{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #323232;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+    color: #767676;
+}
+
+.download-btn {
+	font-size: 12px;
+    vertical-align: bottom;
+}
+
+header{
+    padding-top: 74px;
+    padding-bottom: 40px;
+}
+
+h1, h2{
+    margin: 0px;
+}
+
+h1{
+    padding-bottom: 14px;
+    font-size: 30px;
+    color: #323232;
+}
+
+h2{
+    font-size: 17px;
+    color: #777777;
+}
+
+.horizontal-line{
     width: 100%;
-    height: 100%;
+    height: 2px;
+    background-color: #777777;
 }
 
-.center {
-    display: table-cell;
-    vertical-align: middle;
+.row{
+    margin-right: auto;
+    margin-left: auto;
 }
