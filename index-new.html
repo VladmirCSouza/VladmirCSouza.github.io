@@ -9,6 +9,7 @@
 
     <!-- Stylesheets -->    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         
     <link rel="stylesheet" href="css/generalStyle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="css/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -25,24 +26,46 @@
     <![endif]-->
 
 </head>
-<body>
+<body id="home">
+    <!-- Navbar Start -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="cv/vladmir-souza-cv.pdf" target="_blank"><span class="glyphicon glyphicon-file"></span> <span class="download-btn">DOWNLOAD CV</span></a></li>
-            </ul>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>          
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav" id="myNavbar">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#games">GAMES</a></li>
+                    <li><a href="#work">WORK</a></li>
+                    <li><a href="#education">EDUCATION</a></li>
+                    <li><a href="#extra">EXTRA</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="cv/vladmir-souza-cv.pdf" target="_blank"><span class="fa fa-cloud-download"></span> <span class="download-btn">DOWNLOAD CV</span></a></li>
+                </ul>
+            </div>
+            
+            
         </div>
     </nav>
+    <!-- Navbar End -->
 
     <header>
-        <div class="container-fluid">
+        <div class="container">
             <h1>VLADMIR CHICAROLLI DE SOUZA</h1>
             <h2>SENIOR GAME DEVELOPER</h2>
         </div>
     </header>
 
     <!-- Horizontal Line -->
-    <section>
+    <section id="games">
         <div class="container-fluid">
             <div class="horizontal-line"></div>
         </div>
@@ -52,17 +75,17 @@
 
     <!-- Content Start -->
     <section>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
+                <!-- Side Note Start -->
                 <div class="col-lg-3 col-sm-12 side-note">
-                    <div>
+                    <div class="contact">
                         <h1>CONTACT</h1>
-                        <p><span class="glyphicon glyphicon-map-marker"></span>Lisbon - Portugal</p>
-                        <p><span class="glyphicon glyphicon-envelope"></span>vladmir.csouza@gmail.com</p>
-                        <p><span class="glyphicon glyphicon-earphone"></span>+351 915 700 536</p>
-                        <p><span class="glyphicon glyphicon-tasks"></span>github.com/vladmirCSouza</p>
-                        <p><span class="glyphicon glyphicon-oil"></span>vladmircsouza.github.io</p>
-                        <p><span class="glyphicon glyphicon-text-size"></span>linkedin.com/in/vladmircsouza</p>
+                        <p><span class="fa-sharp fa-solid fa-location-dot"></span>Lisbon - Portugal</p>
+                        <p><span class="fa-solid fa-envelope"></span>vladmir.csouza@gmail.com</p>
+                        <p><span class="fa-solid fa-phone"></span>+351 915 700 536</p>
+                        <p><span class="fa-brands fa-github"></span>github.com/vladmirCSouza</p>
+                        <p><span class="fa-brands fa-linkedin"></span>linkedin.com/in/vladmircsouza</p>
                     </div>
                     <div class="horizontal-line"></div>
                     <div>
@@ -104,48 +127,118 @@
                     </div>
 
                 </div>
+                <!-- Side Note END -->
+
                 <div class="col-lg-9 col-sm-12 main-content">
-                    <div class="circle circle-filled"></div><h1>GAMES</h1>
-                    <div class="circle circle-empty"></div><h2>GAME NAME</h2>
-                    <p>Description</p>
+                    <!-- Game Start -->
+                    <section>
+                        <div class="circle circle-filled"></div>
+                        <h1>GAMES</h1>
+                        <div class="row">
+                            <div class="circle circle-empty"></div>
+                            <div class="col-lg-12 col-sm-12 company-info">
+                                <h2>GAME NAME</h2>
+                                <h3>DESCRIPTION</h3>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Games End-->
 
 
-                    <div class="circle circle-filled"></div><h1>WORK EXPERIENCE</h1>
-                    <div class="circle circle-empty"></div><h2>COMPANY</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                    <!-- WORK EXPERIENCE Start -->
+                    <section id="work">
+                        <div class="circle circle-filled"></div>
+                        <h1>WORK EXPERIENCE</h1>
+                        <div class="row">
+                            <div class="circle circle-empty"></div>
+                            <div class="col-lg-10 col-sm-12 company-info">
+                                <h2>SENIOR GAME DEVELOPER - TOOLS AND R&D</h2>
+                                <h3>Lockwood Publishing</h3>
+                            </div>
+                            <div class="col-lg-2 col-sm-12 date">
+                                <p>JUN - 2021<br>SEP - 2022</p>
+                            </div>
+                        </div>
+                        <div class="row work-description">
+                            <p>DisplayTool - Internal tool made on Unity with some C++ plugins used by the Art and Marketing teams to create and test content that would be launched on the Avakin Life game.</p>
+                            <p>Thumbnails Generation automation - Planned, prototyped and developed a feature to automatically standardize and generate the shop thumbnails.</p>
+                            <p>Maya and DisplayTool integration - Developed a system where the artists can export and test the created animation package on the tool. That integration helped to improve the art workflow, turning a process that usually takes minutes into a single click of a button directly from Maya.</p>
+                            <p>Version Control Automation - a system to run basic and custom version control commands inside the company's application or Unity Editor.</p>
+                        </div>
 
-                    <div class="circle circle-empty"></div><h2>COMPANY</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                        <div class="row">
+                            <div class="circle circle-empty"></div>
+                            <div class="col-lg-10 col-sm-12 company-info">
+                                <h2>CO-FOUNDER / LEAD UNITY DEVELOPER</h2>
+                                <h3>Channel3 Collective</h3>
+                            </div>
+                            <div class="col-lg-2 col-sm-12 date">
+                                <p>JAN - 2021<br>PRESENT</p>
+                            </div>
+                        </div>
+                        <div class="row work-description">
+                            <p>A company that I've created as a hobby to develop games in my spare time.</p>
+                            <p>I Was Lost - a game that combines 2D mazes, sliding puzzles, and narrative. A demo is live on Steam. The final game should be released by the end of the year also for Xbox.</p>
+                            <p>Created the Save and Load system as a package so it can be used in future games.</p>
+                            <p>Integrated the Steam achievements API.</p>
+                        </div>
 
-                    <div class="circle circle-empty"></div><h2>COMPANY</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                        <div class="row">
+                            <div class="circle circle-empty"></div>
+                            <div class="col-lg-10 col-sm-12 company-info">
+                                <h2>UNITY DEVELOPER / C++ GAME DEVELOPER</h2>
+                                <h3>Miniclip</h3>
+                            </div>
+                            <div class="col-lg-2 col-sm-12 date">
+                                <p>OCT - 2018<br>JUN - 2021</p>
+                            </div>
+                        </div>
+                        <div class="row work-description">
+                            <p>8 Ball Pool Trickshots - developed the features: Daily bonus, Show Facebook friends' position on the map and an Improvement on in-game controls which was later applied to the company's main game. A feature to predict the easiest possible shot, this became one of the major game's mechanics used to give bonuses, trophies and ingame consumables.</p>
+                            <p>Mentoring new joiners on a daily work bases and helping them to quickly integrate into the company.</p>
+                            <p>Created the coding best practices for Unity and C# also worked in a Unity Guide & Best Practices for artists.</p>
+                            <p>Top Down Golf - Worked almost a year with Cocos2D and Objective-C. Helped to develop the IA simulation mimicking a player aiming, a feature to challenge your Facebook friends and Leaderboards.</p>
+                        </div>
 
-                    <div class="circle circle-empty"></div><h2>COMPANY</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                        <div class="row">
+                            <div class="circle circle-empty"></div>
+                            <div class="col-lg-10 col-sm-12 company-info">
+                                <h2>CO-FOUNDER / WEB DEVELOPER</h2>
+                                <h3>Marrs Studio</h3>
+                            </div>
+                            <div class="col-lg-2 col-sm-12 date">
+                                <p>OCT - 2018<br>JUN - 2021</p>
+                            </div>
+                        </div>
+                        <div class="row work-description">
+                            <p>Responsible for planning, prototyping, and developing websites and web applications following the client's needs.</p>
+                            <p>Intel Software Day 2013 - Presentation of two projects one called iScholl, which helps parents know what their children's day at the nursery was like and another called Space Oddity, which is an example of an advertising game.</p>
+                        </div>
 
-                    <div class="circle circle-empty"></div><h2>COMPANY</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                    </section>
+                    <!-- WORK EXPERIENCE End-->
 
-                    <div class="circle circle-empty"></div><h2>COMPANY</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                    <section id="education">
+                        <div class="circle circle-filled"></div><h1>EDUCATION</h1>
+                        <div class="circle circle-empty"></div><h2>SCHOOL</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
 
-                    <div class="circle circle-filled"></div><h1>EDUCATION</h1>
-                    <div class="circle circle-empty"></div><h2>SCHOOL</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                        <div class="circle circle-empty"></div><h2>SCHOOL</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                        
+                        <div class="circle circle-empty"></div><h2>SCHOOL</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                        
+                        <div class="circle circle-empty"></div><h2>SCHOOL</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                    </section>
 
-                    <div class="circle circle-empty"></div><h2>SCHOOL</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
-                    
-                    <div class="circle circle-empty"></div><h2>SCHOOL</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
-                    
-                    <div class="circle circle-empty"></div><h2>SCHOOL</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
 
-                    <div class="circle circle-filled"></div><h1>EXTRA</h1>
-                    <div class="circle circle-empty"></div><h2>SCHOOL</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
-
+                    <section id="extra">
+                        <div class="circle circle-filled"></div><h1>EXTRA</h1>
+                        <div class="circle circle-empty"></div><h2>SCHOOL</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare sagittis felis, in tempus est sollicitudin a. Phasellus eget hendrerit mauris. Vivamus id leo non lacus sollicitudin rutrum non sit amet leo. Curabitur malesuada vitae augue at tristique. Phasellus at sodales eros, id fermentum sem. Suspendisse a ipsum rutrum, porta orci sit amet, dictum felis. Vivamus id finibus nibh, vitae volutpat quam. Pellentesque laoreet a tellus egestas condimentum. Sed tincidunt, tortor quis tincidunt luctus, lorem ligula malesuada augue, a cursus risus nisi nec orci. Suspendisse ultrices pharetra tellus, quis varius augue pellentesque vitae. Vivamus bibendum ultrices nunc vel consequat. Sed ullamcorper dolor eu vehicula rhoncus.</p>
+                    </section>
                 </div>
             </div>
         </div>
@@ -155,6 +248,7 @@
 	<!--====== Javascripts & Jquery ======-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/e13835bff8.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
