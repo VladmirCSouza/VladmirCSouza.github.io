@@ -1,0 +1,31 @@
+#mainNav{
+    background-color: #caccce !important;
+    color: #323131 !important;
+}
+
+#masthead{
+    background-color: #323131 !important;
+    color: #caccce !important;
+}
+
+#portfolio{
+    background-color: #caccce !important;
+    color: #323131 !important;
+}
+
+#portfolio h2{
+    color: #323131 !important;
+}
+
+#about{
+    background-color: #323131 !important;
+    color: #caccce !important;
+}
+
+#about h2{
+    color: #caccce !important;
+}
+
+.modal-content h2{
+    color: #323131 !important;
+}
