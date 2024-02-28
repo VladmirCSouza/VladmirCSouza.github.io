@@ -29,3 +29,16 @@
 .modal-content h2{
     color: #323131 !important;
 }
+
+.social-media-links{
+    
+    font-size: 25px;
+    display: inline-flex;
+}
+
+.social-media-links a{
+    padding: 0 !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    margin: 0 !important;
+}
