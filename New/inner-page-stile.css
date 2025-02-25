@@ -13,7 +13,7 @@
     z-index: 9999;
 }
 
-.main-content{
+.main-menu{
     width: 400px;
     display: table-cell;
     position: absolute;
@@ -26,28 +26,23 @@
     pointer-events: auto;
 }
 
-.title{
-    font-size: 30pt;
-}
-
 .links {
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-a {
+.main-menu a {
     border-radius: 38px;
     margin: 0px 2px 0px 2px;
     color: limegreen;
     text-align: inherit;
     -webkit-transition: all linear 0.15s;
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-a:hover {
-    background-color: #323132;
+.main-menu a:hover {
     color: #caccce;
 }
 hr {
@@ -64,8 +59,9 @@ hr {
     grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
     grid-template-rows: repeat(4, 1fr); /* 5 equal-height rows */
     gap: 10px; /* Space between grid items */
-    width: 100%; /* Fill the container */
-    height: 100%; /* Optional: Fill parent height */
+    padding: 100px;
+    width: calc(100% - 200px); /* Fill the container */
+    height: calc(100% - 200px); /* Optional: Fill parent height */
     background-color: #1a1e21;
     z-index: 10;
     display: grid;
@@ -96,10 +92,16 @@ hr {
     position: absolute;
     width: 100%; /* Fill the container */
     height: 100%; /* Optional: Fill parent height */
-    background-color: #b32479;
+    background-color: white;
     display: block;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    pointer-events: auto;
+}
+
+.about a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .about.show {
@@ -108,4 +110,31 @@ hr {
 
 .about.hide {
     opacity: 0;
+}
+
+.about p {
+    padding: 0 200px 0 300px;
+    text-align: justify;
+    font-size: 16pt;
+    line-height: 31px;
+}
+
+.about > p > span {
+    text-align: justify;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.hide{
+    display: none;
+}
+
+.inlineDisplay{
+    display: inline;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 10px;
+    text-align: right;
 }

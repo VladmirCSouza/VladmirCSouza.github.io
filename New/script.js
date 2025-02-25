@@ -381,8 +381,18 @@ document.addEventListener("DOMContentLoaded", function () {
 	const showAboutBtn = document.getElementById("show-about-button");
 	const gamesDiv = document.getElementById("games");
 	const aboutDiv = document.getElementById("about");
+	const mainMenu = document.getElementById("main-menu");
+	const mainMenuTitle = document.getElementById("main-menu-title");
+	const mainMenuButtons = document.getElementById("main-menu-options");
+	const mainMenuHr = document.getElementById("main-menu-hr");
 
 	function triggerTemporaryEffects(callback) {
+		mainMenuHr.classList.add("hide");
+		mainMenuTitle.classList.add("inlineDisplay");
+		mainMenuTitle.textContent = "Vladmir Souza - ";
+		mainMenu.classList.add("inlineDisplay");
+		mainMenuButtons.classList.add("inlineDisplay");
+
 		if (screen.effects.wobbley && screen.effects.wobbley.enabled) {
 			screen.remove("wobbley");
 			screen.remove("snow");
