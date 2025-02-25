@@ -19,7 +19,7 @@ canvas {
 }
 canvas.snow {
   background-color: #aaa;
-  opacity: 0.2;
+  opacity: 1;
 }
 
 #screen {
@@ -30,8 +30,8 @@ canvas.snow {
 }
 
 .screen-container {
-  width: 640px;
-  height: 360px;
+  width: 100%;
+  aspect-ratio: 16/9;
   overflow: hidden;
   position: relative;
 }
