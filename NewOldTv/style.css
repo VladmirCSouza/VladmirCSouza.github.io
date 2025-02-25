@@ -30,7 +30,7 @@ canvas.snow {
 }
 
 .screen-container {
-  width: 100%;
+  width: 90%;
   aspect-ratio: 16/9;
   overflow: hidden;
   position: relative;
@@ -38,8 +38,8 @@ canvas.snow {
 
 .screen-wrapper {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 99.9%;
+  height: 99.9%;
 }
 .vcr {
   opacity: 0.6;

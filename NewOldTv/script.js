@@ -375,3 +375,63 @@ setTimeout(() => {
 		}
 	}
 }, 1000);
+
+document.addEventListener("DOMContentLoaded", function () {
+	const showGamesBtn = document.getElementById("show-games-button");
+	const showAboutBtn = document.getElementById("show-about-button");
+	const gamesDiv = document.getElementById("games");
+	const aboutDiv = document.getElementById("about");
+
+	function triggerTemporaryEffects(callback) {
+		if (screen.effects.wobbley && screen.effects.wobbley.enabled) {
+			screen.remove("wobbley");
+			screen.remove("snow");
+			return callback();
+		} else {
+			screen.add("wobbley");
+		}
+
+		if (screen.effects.snow && screen.effects.snow.enabled) {
+			screen.remove("wobbley");
+			screen.remove("snow");
+			return callback();
+		} else {
+			screen.add("snow", { opacity: 1 });
+		}
+
+		// Wait 0.5 seconds before executing the callback and removing effects
+		setTimeout(() => {
+			callback();
+
+			// Remove effects after delay
+			screen.remove("wobbley");
+			screen.remove("snow");
+		}, 250);
+	}
+
+	// Add click event to the link
+	showGamesBtn.addEventListener("click", function (event) {
+		event.preventDefault();
+
+		aboutDiv.classList.remove("show");
+		aboutDiv.classList.add("hide");
+
+		triggerTemporaryEffects(() => {
+			gamesDiv.classList.remove("hide");
+			gamesDiv.classList.add("show");
+		});
+
+		/**/
+	});
+
+	showAboutBtn.addEventListener("click", function (event) {
+		event.preventDefault();
+		gamesDiv.classList.remove("show");
+		gamesDiv.classList.add("hide");
+
+		triggerTemporaryEffects(() => {
+			aboutDiv.classList.remove("hide");
+			aboutDiv.classList.add("show");
+		});
+	});
+});

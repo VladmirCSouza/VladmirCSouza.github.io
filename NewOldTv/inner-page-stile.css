@@ -36,11 +36,11 @@ a {
     border-radius: 38px;
     margin: 0px 2px 0px 2px;
     color: limegreen;
-    padding: 5px;
     text-align: inherit;
-    padding-bottom: 5px;
-    width: 46px;
     -webkit-transition: all linear 0.15s;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
 }
 a:hover {
     background-color: #323132;
@@ -51,4 +51,57 @@ hr {
     width: 260px;
     border-width: 1px;
     border-color: limegreen;
+}
+
+.games {
+    align-content: center;
+    text-align: center;
+    position: absolute;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+    grid-template-rows: repeat(4, 1fr); /* 5 equal-height rows */
+    gap: 10px; /* Space between grid items */
+    width: 100%; /* Fill the container */
+    height: 100%; /* Optional: Fill parent height */
+    background-color: #1a1e21;
+    z-index: 10;
+    display: grid;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.games > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    font-size: 20px;
+}
+
+.games.show {
+    opacity: 1;
+}
+
+.games.hide{
+    opacity: 0;
+}
+
+.about {
+    align-content: center;
+    text-align: center;
+    position: absolute;
+    width: 100%; /* Fill the container */
+    height: 100%; /* Optional: Fill parent height */
+    background-color: #b32479;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.about.show {
+    opacity: 1;
+}
+
+.about.hide {
+    opacity: 0;
 }
