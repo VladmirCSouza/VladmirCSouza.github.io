@@ -26,6 +26,10 @@
     pointer-events: auto;
 }
 
+.title{
+    font-size: 30pt;
+}
+
 .links {
     display: flex;
     justify-content: center;
