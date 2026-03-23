@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vladmir Souza — Game Dev Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:    #d42a4a;
+      --amber:  #e8931a;
+      --cyan:   #1d9fc4;
+      --ink:    #1a1410;
+
+      --bg:       #f5f0e8;
+      --bg-dark:  #ede5d4;
+      --panel:    #faf7f2;
+      --border:   #c9bfaa;
+
+      --text:     #1a1410;
+      --dim:      #7a6e5f;
+      --white:    #faf7f2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle, #c9bfaa88 1px, transparent 1px);
+      background-size: 20px 20px;
+      color: var(--text);
+      font-family: 'Press Start 2P', monospace;
+      font-size: 10px;
+      line-height: 1.9;
+      overflow-x: hidden;
+      image-rendering: pixelated;
+    }
+
+    /* ═══════════════════════════════
+       HEADER
+    ═══════════════════════════════ */
+    header {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 56px 32px 24px;
+      animation: fadePixel 0.5s steps(6) both;
+    }
+
+    .header-box {
+      background: var(--ink);
+      border: 4px solid var(--amber);
+      padding: 40px 48px 36px;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(
+        0 8px, 8px 0,
+        calc(100% - 8px) 0, 100% 8px,
+        100% calc(100% - 8px), calc(100% - 8px) 100%,
+        8px 100%, 0 calc(100% - 8px)
+      );
+    }
+
+    /* scanline */
+    .header-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent, transparent 3px,
+        rgba(255,255,255,0.025) 3px, rgba(255,255,255,0.025) 4px
+      );
+      pointer-events: none;
+    }
+
+    .header-tag {
+      font-size: 8px;
+      color: var(--cyan);
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-tag::before {
+      content: '';
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: var(--cyan);
+      animation: blink 1s steps(1) infinite;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 5vw, 3rem);
+      line-height: 1.2;
+      color: var(--amber);
+      text-shadow: 4px 4px 0 var(--red), 8px 8px 0 rgba(0,0,0,0.4);
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    /* h1 .alt { color: var(--red); } */
+
+    .subtitle-box {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid var(--cyan);
+      padding: 8px 16px;
+      font-size: 8px;
+      color: var(--cyan);
+      letter-spacing: 0.1em;
+      position: relative;
+    }
+
+    .subtitle-box::before {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 24px;
+      width: 8px; height: 8px;
+      background: var(--cyan);
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    .hero-sprite {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-sprite canvas { display: block; }
+
+    /* ═══════════════════════════════
+       STAT BARS
+    ═══════════════════════════════ */
+    .stat-bar-row {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px 32px;
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 7px;
+      color: var(--dim);
+    }
+
+    .stat-label { color: var(--ink); min-width: 36px; }
+
+    .stat-track {
+      width: 100px;
+      height: 10px;
+      background: var(--bg-dark);
+      border: 2px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-fill { height: 100%; }
+
+    /* ═══════════════════════════════
+       ABOUT
+    ═══════════════════════════════ */
+    .about {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 8px 32px 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      animation: fadePixel 0.5s 0.1s steps(6) both;
+    }
+
+    .window {
+      background: var(--panel);
+      border: 4px solid var(--border);
+      position: relative;
+    }
+
+    .window-title-bar {
+      background: var(--ink);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 8px;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      border-bottom: 4px solid var(--ink);
+    }
+
+    .win-dot { width: 8px; height: 8px; display: inline-block; }
+
+    .window-body { padding: 20px 20px 24px; }
+
+    .about-bio p {
+      font-family: 'VT323', monospace;
+      font-size: 18px;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+
+    .about-bio p:first-child { color: var(--cyan); font-size: 19px; }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .skill-chip {
+      font-size: 7px;
+      padding: 5px 10px;
+      border: 2px solid currentColor;
+      cursor: default;
+      background: transparent;
+      transition: background 0.05s steps(1), color 0.05s steps(1);
+    }
+
+    .skill-chip:hover { background: var(--ink); color: var(--amber) !important; border-color: var(--amber); }
+
+    /* contact rows */
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border: 2px solid var(--border);
+      margin-bottom: 8px;
+      background: var(--bg-dark);
+      cursor: pointer;
+      transition: border-color 0.05s steps(1), background 0.05s steps(1);
+      text-decoration: none;
+    }
+
+    .contact-row:hover { border-color: var(--cyan); background: #e8e0d0; }
+
+    .contact-icon-px { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .contact-icon-px canvas { display: block; }
+
+    .c-label { font-size: 7px; color: var(--dim); display: block; margin-bottom: 3px; letter-spacing: 0.1em; }
+    .c-val   { font-family: 'VT323', monospace; font-size: 16px; color: var(--ink); }
+
+    /* ═══════════════════════════════
+       GALLERY
+    ═══════════════════════════════ */
+    .work-section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 8px 32px 80px;
+      animation: fadePixel 0.5s 0.2s steps(6) both;
+    }
+
+    .section-hdr {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 4px solid var(--border);
+    }
+
+    .section-hdr h2 {
+      font-size: clamp(0.7rem, 2vw, 1rem);
+      color: var(--ink);
+      letter-spacing: 0.06em;
+    }
+
+    .count-badge {
+      font-size: 7px;
+      background: var(--red);
+      color: var(--white);
+      padding: 4px 10px;
+      border: 2px solid var(--ink);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 4px solid var(--border);
+      cursor: pointer;
+      transition: border-color 0.05s steps(1), transform 0.05s steps(1), box-shadow 0.05s steps(1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent, transparent 3px,
+        rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 4px
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .card:hover {
+      border-color: var(--amber);
+      transform: translate(-4px, -4px);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .card-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 4px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-thumb canvas { display: block; }
+
+    .card:hover .card-thumb::after {
+      content: '▶ PLAY';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: var(--amber);
+      background: rgba(26,20,16,0.7);
+      letter-spacing: 0.15em;
+      z-index: 3;
+    }
+
+    .card-info { padding: 14px 16px 18px; }
+
+    .platform-tag {
+      font-size: 7px;
+      padding: 3px 8px;
+      border: 2px solid currentColor;
+      display: inline-block;
+      margin-bottom: 10px;
+      letter-spacing: 0.1em;
+      background: transparent;
+    }
+
+    .card-title {
+      font-size: 9px;
+      color: var(--ink);
+      line-height: 1.6;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .card-desc {
+      font-family: 'VT323', monospace;
+      font-size: 15px;
+      color: var(--dim);
+      line-height: 1.4;
+    }
+
+    /* ═══════════════════════════════
+       FOOTER
+    ═══════════════════════════════ */
+    footer {
+      background: var(--ink);
+      border-top: 4px solid var(--amber);
+      text-align: center;
+      padding: 28px 32px;
+      font-size: 8px;
+      color: var(--border);
+      letter-spacing: 0.1em;
+    }
+
+    footer .hi { color: var(--amber); }
+    footer .blink { animation: blink 1s steps(1) infinite; color: var(--cyan); }
+
+    /* ═══════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════ */
+    @keyframes fadePixel {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes blink {
+      0%,49% { opacity: 1; }
+      50%,100%{ opacity: 0; }
+    }
+
+    /* ═══════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════ */
+    @media (max-width: 660px) {
+      header { padding: 32px 16px 16px; }
+      .header-box { padding: 24px 20px; }
+      .hero-sprite { display: none; }
+      .about { grid-template-columns: 1fr; padding: 8px 16px 24px; }
+      .work-section { padding: 8px 16px 60px; }
+      .gallery { grid-template-columns: 1fr; }
+      .stat-bar-row { padding: 12px 16px; }
+      h1 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-box">
+      <div class="header-tag">GAME DEV</div>
+      <h1>VLADMIR<br><span class="alt">SOUZA</span></h1>
+    </div>
+  </header>
+  <!-- ── About ── -->
+  <section class="about">
+
+    <div class="window">
+      <div class="window-title-bar">
+        <span class="win-dot" style="background:#d42a4a;"></span>
+        <span class="win-dot" style="background:#e8931a;"></span>
+        <span class="win-dot" style="background:#1d9fc4;"></span>
+        &nbsp;ABOUT.EXE
+      </div>
+      <div class="window-body">
+        <div class="about-bio">
+          <p>I press buttons and games happen.</p>
+          <p>Senior Game Developer for mobile, desktop, and consoles using Unity and C#. Tool, gameplay, and generalist programmer with strong knowledge of C++. Focused on writing clean, highly maintainable code. Great skills in game prototyping, team training, and leadership.</p>
+          <p>Occasional bassist, occasionally dabbling in animation or painting.</p>
+        </div>
+        <div class="skills">
+          <span class="skill-chip" style="color:var(--amber);">C#</span>
+          <span class="skill-chip" style="color:var(--red);">C++</span>
+          <span class="skill-chip" style="color:var(--cyan);">UNITY</span>
+          <span class="skill-chip" style="color:var(--ink);">UNREAL</span>
+          <span class="skill-chip" style="color:var(--amber);">MONOGAME</span>
+          <span class="skill-chip" style="color:var(--red);">GODOT</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="window">
+      <div class="window-title-bar">
+        <span class="win-dot" style="background:#d42a4a;"></span>
+        <span class="win-dot" style="background:#e8931a;"></span>
+        <span class="win-dot" style="background:#1d9fc4;"></span>
+        &nbsp;CONTACT.EXE
+      </div>
+      <div class="window-body">
+
+        <a class="contact-row" href="mailto:vladmir.csouza@proton.me">
+          <div class="contact-icon-px"><canvas class="icon-canvas" data-icon="email" width="20" height="20"></canvas></div>
+          <div><span class="c-label">EMAIL</span><span class="c-val">vladmir.csouza@proton.me</span></div>
+        </a>
+        <a class="contact-row" href="www.linkedin.com/in/vladmircsouza" target="_blank">
+          <div class="contact-icon-px"><canvas class="icon-canvas" data-icon="link" width="20" height="20"></canvas></div>
+          <div><span class="c-label">LINKEDIN</span><span class="c-val">linkedin.com/in/vladmircsouza</span></div>
+        </a>
+        <a class="contact-row" href="https://github.com/VladmirCSouza" target="_blank">
+          <div class="contact-icon-px"><canvas class="icon-canvas" data-icon="code" width="20" height="20"></canvas></div>
+          <div><span class="c-label">GITHUB</span><span class="c-val">github.com/VladmirCSouza</span></div>
+        </a>
+        <a class="contact-row" href="https://www.channel3.com.br" target="_blank">
+          <div class="contact-icon-px"><canvas class="icon-canvas" data-icon="web" width="20" height="20"></canvas></div>
+          <div><span class="c-label">WEBSITE</span><span class="c-val">channel3.com.br</span></div>
+        </a>
+        <a class="contact-row" href="https://store.steampowered.com/search/?developer=CH3%20Collective">
+          <div class="contact-icon-px"><canvas class="icon-canvas" data-icon="game" width="20" height="20"></canvas></div>
+          <div><span class="c-label">STEAM</span><span class="c-val">steampowered.com/CH3</span></div>
+        </a>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Games ── -->
+  <section class="work-section">
+    <div class="section-hdr">
+      <h2>// SELECTED GAMES</h2>
+      <span class="count-badge">06 TITLES</span>
+    </div>
+
+    <div class="gallery">
+
+      <div class="card">
+        <div class="card-thumb"><canvas class="thumb-canvas" data-theme="castle" width="320" height="180"></canvas></div>
+        <div class="card-info">
+          <span class="platform-tag" style="color:var(--red);">NINTENDO SWITCH</span>
+          <h3 class="card-title">CASTLE BOP<br>— PLATFORMER</h3>
+          <p class="card-desc">Bouncy cartoon platformer with 40 handcrafted levels. 200k+ copies sold on Switch eShop.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-thumb"><canvas class="thumb-canvas" data-theme="space" width="320" height="180"></canvas></div>
+        <div class="card-info">
+          <span class="platform-tag" style="color:var(--cyan);">PC / STEAM</span>
+          <h3 class="card-title">COSMO CHAOS<br>— SHOOT EM UP</h3>
+          <p class="card-desc">Retro-inspired space shooter with hand-drawn sprites and a chiptune OST.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-thumb"><canvas class="thumb-canvas" data-theme="frog" width="320" height="180"></canvas></div>
+        <div class="card-info">
+          <span class="platform-tag" style="color:var(--amber);">iOS &amp; ANDROID</span>
+          <h3 class="card-title">RIBBITY RUN<br>— ENDLESS RUNNER</h3>
+          <p class="card-desc">Cartoon frog endless runner with procedural levels. 1M+ downloads on launch week.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-thumb"><canvas class="thumb-canvas" data-theme="hex" width="320" height="180"></canvas></div>
+        <div class="card-info">
+          <span class="platform-tag" style="color:var(--red);">PC / ITCH.IO</span>
+          <h3 class="card-title">HEX &amp; HAVOC<br>— PUZZLE RPG</h3>
+          <p class="card-desc">Hex-grid tactics RPG with a hand-inked art style. Game Jam winner 2023.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-thumb"><canvas class="thumb-canvas" data-theme="robot" width="320" height="180"></canvas></div>
+        <div class="card-info">
+          <span class="platform-tag" style="color:var(--amber);">PS5 / XBOX</span>
+          <h3 class="card-title">BOLT BRIGADE<br>— CO-OP BRAWLER</h3>
+          <p class="card-desc">4-player couch co-op robot brawler with destructible cartoon environments.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-thumb"><canvas class="thumb-canvas" data-theme="fox" width="320" height="180"></canvas></div>
+        <div class="card-info">
+          <span class="platform-tag" style="color:var(--cyan);">GAME BOY (HOMEBREW)</span>
+          <h3 class="card-title">FOXHOLE<br>— STEALTH ADVENTURE</h3>
+          <p class="card-desc">Love letter to classic Game Boy games. Pixel-perfect art, 4-color palette, full cart release.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <span class="hi">VLADMIR SOUZA</span> · MADE WITH PIZZA AND TOO MUCH COFFEE · 2026
+    <br><br>
+    <span class="blink">█</span>
+  </footer>
+
+  <script>
+  const S8 = 8;
+  function px(ctx, x, y, color, size = S8) {
+    ctx.fillStyle = color;
+    ctx.fillRect(x * size, y * size, size, size);
+  }
+
+  // Colors from logo
+  const RED   = '#d42a4a';
+  const AMBER = '#e8931a';
+  const CYAN  = '#1d9fc4';
+  const INK   = '#1a1410';
+  const CREAM = '#f5f0e8';
+
+  function drawSprite(canvas) {
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const S = 8;
+    const body = [
+      [0,0,1,1,1,1,0,0],
+      [0,1,2,2,2,2,1,0],
+      [0,1,2,3,3,2,1,0],
+      [0,1,2,2,2,2,1,0],
+      [0,0,1,1,1,1,0,0],
+      [0,1,1,0,0,1,1,0],
+      [1,1,0,0,0,0,1,1],
+      [1,0,0,0,0,0,0,1],
+      [1,1,0,0,0,0,1,1],
+      [0,1,1,0,0,1,1,0],
+    ];
+    const palette = ['transparent', AMBER, INK, RED];
+    body.forEach((row, y) => row.forEach((v, x) => {
+      if (v > 0) px(ctx, x, y, palette[v], S);
+    }));
+  }
+
+  function drawThumb(canvas, theme) {
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+    const S = 8;
+    const cols = Math.floor(w / S);
+    const rows = Math.floor(h / S);
+
+    function block(gx, gy, color, sw = S, sh = S) {
+      ctx.fillStyle = color; ctx.fillRect(gx * S, gy * S, sw, sh);
+    }
+    function fill(color) { ctx.fillStyle = color; ctx.fillRect(0, 0, w, h); }
+    function scanlines() {
+      for (let y = 0; y < h; y += 4) { ctx.fillStyle = 'rgba(0,0,0,0.05)'; ctx.fillRect(0, y, w, 2); }
+    }
+
+    if (theme === 'castle') {
+      fill('#1a2a3a');
+      for (let x = 0; x < cols; x++) block(x, rows-2, '#3a2810');
+      for (let x = 0; x < cols; x++) block(x, rows-1, '#2a1c08');
+      [[2,3],[10,3],[18,3]].forEach(([tx,ty]) => {
+        for (let r = ty; r < rows-2; r++) { block(tx, r, CREAM); block(tx+1, r, '#ddd0b8'); }
+        block(tx, ty-1, AMBER); block(tx+1, ty-1, AMBER);
+        block(tx, ty+2, CYAN, S, S); // window
+      });
+      block(6, rows-4, AMBER); block(6, rows-3, RED); block(6, rows-2, AMBER);
+    }
+
+    else if (theme === 'space') {
+      fill('#06080f');
+      for (let i = 0; i < 40; i++) {
+        const sx = Math.floor(Math.random()*cols), sy = Math.floor(Math.random()*rows);
+        block(sx, sy, CREAM, 2, 2);
+      }
+      [[5,3],[6,2],[7,2],[8,3],[8,4],[7,5],[6,5],[5,4]].forEach(([x,y]) => block(x, y, CYAN));
+      block(6,3,'#7dd4ea'); block(7,3,'#a8e8f5');
+      [[14,4],[15,3],[16,3],[17,4],[14,5],[17,5]].forEach(([x,y]) => block(x, y, CREAM));
+      block(15,4,CYAN); block(16,4,CYAN);
+      block(15,5,RED); block(16,5,AMBER);
+      for (let x = 18; x < cols; x++) block(x, 4, AMBER, S, 2);
+    }
+
+    else if (theme === 'frog') {
+      fill('#0e3a1e');
+      [[1,rows-2],[5,rows-2],[9,rows-2],[13,rows-2],[17,rows-2]].forEach(([x,y]) => {
+        block(x,y,CYAN); block(x+1,y,CYAN); block(x+2,y,CYAN);
+      });
+      for (let x = 0; x < cols; x++) block(x, rows-1, '#0a2a38');
+      block(5,rows-4,AMBER);
+      block(4,rows-3,AMBER); block(5,rows-3,RED); block(6,rows-3,AMBER);
+      block(5,rows-2,AMBER);
+      block(4,rows-4,CREAM,4,4); block(6,rows-4,CREAM,4,4);
+    }
+
+    else if (theme === 'hex') {
+      fill('#1a0a14');
+      const hexColors = [RED, '#b03050', '#c04060', '#902040', '#d05070'];
+      for (let row = 0; row < 4; row++) {
+        for (let col = 0; col < 8; col++) {
+          const ox = (row % 2) * 2;
+          const c = hexColors[(row + col) % hexColors.length];
+          block(col*4+ox+1, row*3+1, c, S*2, S);
+          block(col*4+ox+2, row*3, c, S*2, S);
+          block(col*4+ox+2, row*3+2, c, S*2, S);
+        }
+      }
+      block(17,rows-5,AMBER);
+      block(16,rows-4,RED); block(17,rows-4,RED); block(18,rows-4,RED);
+      block(17,rows-3,RED);
+    }
+
+    else if (theme === 'robot') {
+      fill('#100808');
+      ctx.strokeStyle = '#2a1010'; ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += S) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke(); }
+      for (let y = 0; y < h; y += S) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(w,y); ctx.stroke(); }
+      [[3,rows-6],[10,rows-6],[17,rows-6]].forEach(([rx,ry], i) => {
+        const colors = [RED, CYAN, AMBER];
+        const c = colors[i];
+        block(rx,ry,c); block(rx+1,ry,c);
+        block(rx,ry+1,'#666'); block(rx+1,ry+1,'#666');
+        block(rx,ry+2,c); block(rx+1,ry+2,c);
+        block(rx,ry+3,'#888'); block(rx+1,ry+3,'#888');
+        block(rx,ry,CREAM,3,3); block(rx+1,ry,CREAM,3,3);
+      });
+    }
+
+    else if (theme === 'fox') {
+      // GB palette replaced with logo colors (4 tones)
+      const gb = [INK, '#3a2010', AMBER, CREAM];
+      fill(gb[3]);
+      for (let x = 0; x < cols; x++) block(x, rows-2, gb[1]);
+      for (let x = 0; x < cols; x++) block(x, rows-1, gb[0]);
+      [[2,rows-6],[8,rows-5],[15,rows-7],[21,rows-6]].forEach(([tx,ty]) => {
+        block(tx,ty,gb[1]); block(tx+1,ty,gb[1]);
+        block(tx,ty+1,gb[0]); block(tx+1,ty+1,gb[0]);
+        for (let r = ty+2; r < rows-2; r++) block(tx,r,gb[1]);
+      });
+      block(10,rows-5,AMBER);
+      block(9,rows-4,RED); block(10,rows-4,AMBER); block(11,rows-4,RED);
+      block(10,rows-3,AMBER); block(10,rows-2,RED);
+      block(18,1,CREAM,S*2,S*2);
+    }
+
+    scanlines();
+  }
+
+  function drawIcon(canvas, type) {
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const S = 2;
+    const c = CYAN;
+    const icons = {
+      email: [[0,0,0,0,0,0,0,0,0,0],[0,1,1,1,1,1,1,1,1,0],[0,1,0,0,0,0,0,0,1,0],[0,1,1,0,0,0,0,1,1,0],[0,1,0,1,0,0,1,0,1,0],[0,1,0,0,1,1,0,0,1,0],[0,1,0,0,0,0,0,0,1,0],[0,1,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]],
+      link:  [[0,0,0,0,1,1,0,0,0,0],[0,0,0,1,0,0,1,0,0,0],[0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0,0,0],[0,0,0,0,1,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,1,0,0,0],[0,0,0,1,1,1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]],
+      code:  [[0,0,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0],[1,0,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,1,0,0],[0,0,0,0,0,0,1,0,0,0],[0,0,0,0,0,1,0,0,0,0],[0,0,0,0,0,0,1,0,0,0]],
+      game:  [[0,1,1,1,1,1,1,1,1,0],[1,0,0,0,0,0,0,0,0,1],[1,0,0,1,0,0,1,1,0,1],[1,0,1,1,1,0,0,1,0,1],[1,0,0,1,0,0,1,1,0,1],[1,0,0,0,0,0,0,0,0,1],[0,1,1,1,1,1,1,1,1,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]],
+      web:   [[0,0,1,1,1,1,1,1,0,0],[0,1,0,0,0,0,0,0,1,0],[1,0,0,1,1,1,1,0,0,1],[1,0,1,0,0,0,0,1,0,1],[1,0,1,0,0,0,0,1,0,1],[1,0,0,1,1,1,1,0,0,1],[0,1,0,0,0,0,0,0,1,0],[0,0,1,1,1,1,1,1,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]],
+    };
+    const grid = icons[type] || icons.web;
+    grid.forEach((row, y) => row.forEach((v, x) => {
+      if (v) { ctx.fillStyle = c; ctx.fillRect(x*S, y*S, S, S); }
+    }));
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const sprite = document.getElementById('sprite');
+    if (sprite) {
+      drawSprite(sprite);
+      let t = 0;
+      setInterval(() => {
+        t += 0.1;
+        sprite.style.transform = `translateY(${Math.sin(t) * 5}px)`;
+      }, 50);
+    }
+    document.querySelectorAll('.thumb-canvas').forEach(c => drawThumb(c, c.dataset.theme));
+    document.querySelectorAll('.icon-canvas').forEach(c => drawIcon(c, c.dataset.icon));
+  });
+  </script>
+</body>
+</html>
