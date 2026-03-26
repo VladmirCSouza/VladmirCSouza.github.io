@@ -299,6 +299,7 @@
       transition: border-color 0.05s steps(1), transform 0.05s steps(1), box-shadow 0.05s steps(1);
       position: relative;
       overflow: hidden;
+      height: fit-content;
     }
 
     .card-link{
@@ -339,7 +340,7 @@
     .card-thumb canvas { display: block; }
 
     .card:hover .card-thumb::after {
-      content: '▶ PLAY';
+      content: 'MORE INFO';
       position: absolute;
       inset: 0;
       display: flex;
@@ -496,29 +497,30 @@
   <section class="work-section">
     <div class="section-hdr">
       <h2>// SELECTED GAMES</h2>
-      <span class="count-badge">06 TITLES</span>
+      <!-- span class="count-badge">06 TITLES</span -->
     </div>
 
     <div class="gallery">
-
       <div class="card">
-        <a class="card-link" href="vixe.html" target="_blank">
-          <div class="card-thumb"><canvas class="thumb-canvas" data-theme="castle" width="320" height="180"></canvas></div>
+        <a class="card-link" href="https://store.steampowered.com/app/1935420/I_Was_Lost/" target="_blank">
+          <div class="card-thumb">
+            <img class="thumb-canvas" src="images/thumbs/iwl-thumb.png" alt="I Was Lost Thumb" width="320" height="180">
+          </div>
           <div class="card-info">
-            <span class="platform-tag" style="color:var(--red);">NINTENDO SWITCH</span>
-            <h3 class="card-title">CASTLE BOP<br>— PLATFORMER</h3>
-            <p class="card-desc">Bouncy cartoon platformer with 40 handcrafted levels. 200k+ copies sold on Switch eShop.</p>
+            <span class="platform-tag" style="color:var(--red);">STEAM / CONSOLES</span>
+            <h3 class="card-title">I WAS LOST</h3>
           </div>
         </a>
       </div>
 
       <div class="card">
-        <a class="card-link" href="vixe.html" target="_blank">
-          <div class="card-thumb"><canvas class="thumb-canvas" data-theme="space" width="320" height="180"></canvas></div>
+        <a class="card-link" href="https://store.steampowered.com/app/1931180/Lost_Skies/" target="_blank">
+          <div class="card-thumb">
+            <img class="thumb-canvas" src="images/thumbs/skies-thumb.png" alt="Lost Skies Thumb" width="320" height="180">
+          </div>
           <div class="card-info">
-            <span class="platform-tag" style="color:var(--cyan);">PC / STEAM</span>
-            <h3 class="card-title">COSMO CHAOS<br>— SHOOT EM UP</h3>
-            <p class="card-desc">Retro-inspired space shooter with hand-drawn sprites and a chiptune OST.</p>
+            <span class="platform-tag" style="color:var(--cyan);">STEAM / CONSOLES</span>
+            <h3 class="card-title">LOST SKIES</h3>
           </div>
         </a>
       </div>
@@ -528,8 +530,7 @@
           <div class="card-thumb"><canvas class="thumb-canvas" data-theme="frog" width="320" height="180"></canvas></div>
           <div class="card-info">
             <span class="platform-tag" style="color:var(--amber);">iOS &amp; ANDROID</span>
-            <h3 class="card-title">RIBBITY RUN<br>— ENDLESS RUNNER</h3>
-            <p class="card-desc">Cartoon frog endless runner with procedural levels. 1M+ downloads on launch week.</p>
+            <h3 class="card-title">ANOTHER GAME</h3>
           </div>
         </a>
       </div>
@@ -539,8 +540,7 @@
           <div class="card-thumb"><canvas class="thumb-canvas" data-theme="hex" width="320" height="180"></canvas></div>
           <div class="card-info">
             <span class="platform-tag" style="color:var(--red);">PC / ITCH.IO</span>
-            <h3 class="card-title">HEX &amp; HAVOC<br>— PUZZLE RPG</h3>
-            <p class="card-desc">Hex-grid tactics RPG with a hand-inked art style. Game Jam winner 2023.</p>
+            <h3 class="card-title">ANOTHER GAME</h3>
           </div>
         </a>
       </div>
@@ -550,8 +550,7 @@
           <div class="card-thumb"><canvas class="thumb-canvas" data-theme="robot" width="320" height="180"></canvas></div>
           <div class="card-info">
             <span class="platform-tag" style="color:var(--amber);">PS5 / XBOX</span>
-            <h3 class="card-title">BOLT BRIGADE<br>— CO-OP BRAWLER</h3>
-            <p class="card-desc">4-player couch co-op robot brawler with destructible cartoon environments.</p>
+            <h3 class="card-title">ANOTHER GAME</h3>
           </div>
         </a>
       </div>
@@ -561,8 +560,37 @@
           <div class="card-thumb"><canvas class="thumb-canvas" data-theme="fox" width="320" height="180"></canvas></div>
           <div class="card-info">
             <span class="platform-tag" style="color:var(--cyan);">GAME BOY (HOMEBREW)</span>
-            <h3 class="card-title">FOXHOLE<br>— STEALTH ADVENTURE</h3>
-            <p class="card-desc">Love letter to classic Game Boy games. Pixel-perfect art, 4-color palette, full cart release.</p>
+            <h3 class="card-title">ANOTHER GAME</h3>
+          </div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="vixe.html" target="_blank">
+          <div class="card-thumb"><canvas class="thumb-canvas" data-theme="hex" width="320" height="180"></canvas></div>
+          <div class="card-info">
+            <span class="platform-tag" style="color:var(--red);">PC / ITCH.IO</span>
+            <h3 class="card-title">ANOTHER GAME</h3>
+          </div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="vixe.html" target="_blank">
+          <div class="card-thumb"><canvas class="thumb-canvas" data-theme="robot" width="320" height="180"></canvas></div>
+          <div class="card-info">
+            <span class="platform-tag" style="color:var(--amber);">PS5 / XBOX</span>
+            <h3 class="card-title">ANOTHER GAME</h3>
+          </div>
+        </a>
+      </div>
+
+      <div class="card">
+        <a class="card-link" href="vixe.html" target="_blank">
+          <div class="card-thumb"><canvas class="thumb-canvas" data-theme="fox" width="320" height="180"></canvas></div>
+          <div class="card-info">
+            <span class="platform-tag" style="color:var(--cyan);">GAME BOY (HOMEBREW)</span>
+            <h3 class="card-title">ANOTHER GAME</h3>
           </div>
         </a>
       </div>
@@ -573,8 +601,6 @@
   <!-- ── Footer ── -->
   <footer>
     <span class="hi">VLADMIR SOUZA</span> · MADE WITH PIZZA AND TOO MUCH COFFEE · 2026
-    <br><br>
-    <span class="blink">█</span>
   </footer>
 
   <script>
@@ -612,8 +638,6 @@
       if (v > 0) px(ctx, x, y, palette[v], S);
     }));
   }
-
-  function drawThumb(canvas, theme) {
     const ctx = canvas.getContext('2d');
     const w = canvas.width, h = canvas.height;
     ctx.clearRect(0, 0, w, h);
@@ -718,7 +742,6 @@
     }
 
     scanlines();
-  }
 
   function drawIcon(canvas, type) {
     const ctx = canvas.getContext('2d');
@@ -748,7 +771,6 @@
         sprite.style.transform = `translateY(${Math.sin(t) * 5}px)`;
       }, 50);
     }
-    document.querySelectorAll('.thumb-canvas').forEach(c => drawThumb(c, c.dataset.theme));
     document.querySelectorAll('.icon-canvas').forEach(c => drawIcon(c, c.dataset.icon));
   });
   </script>
